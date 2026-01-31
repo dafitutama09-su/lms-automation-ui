@@ -4,35 +4,31 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        browser: [chrome, firefox]
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Java
+      - name: Setup JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
 
-      # 🔥 INI YANG PENTING BANGET
-      - name: Give permission to gradlew
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Setup Firefox
+        uses: browser-actions/setup-firefox@v1
+
+      - name: Grant permission
         run: chmod +x gradlew
 
-      - name: Run tests
-        run: ./gradlew clean test -Dbrowser=${{ matrix.browser }}
+      - name: Run Chrome
+        run: ./gradlew clean test -Dbrowser=chrome
 
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        with:
-          name: report-${{ matrix.browser }}
-          path: build/reports/
+      - name: Run Firefox
+        run: ./gradlew clean test -Dbrowser=firefox
