@@ -4,7 +4,6 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
 
 jobs:
   test:
@@ -15,22 +14,38 @@ jobs:
         browser: [chrome, firefox]
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup JDK 17
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 17
+          distribution: 'temurin'
+          java-version: '17'
 
-      - name: Grant gradle permission
-        run: chmod +x gradlew
+      # ======================
+      # INSTALL BROWSERS
+      # ======================
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
 
+      - name: Install Firefox
+        run: |
+          sudo apt-get install -y firefox
+
+      # ======================
+      # RUN TEST
+      # ======================
       - name: Run Automation Test
         run: ./gradlew clean test -Dbrowser=${{ matrix.browser }}
 
+      # ======================
+      # UPLOAD REPORT
+      # ======================
       - name: Upload Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: report-${{ matrix.browser }}
