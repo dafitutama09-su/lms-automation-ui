@@ -1,0 +1,6 @@
+testCaseId,username,password,expectedResult
+TC-LGN-01,arwendymelyn@dibimbing.id,s2et9bh6l,success
+TC-LGN-02,usersalah@dibimbing.id,passwordsalah,failed
+TC-LGN-03,arwendymelyn@dibimbing.id,passwordsalah,failed
+TC-LGN-04,usersalah@dibimbing.id,s2et9bh6l,failed
+TC-LGN-05,,,failed

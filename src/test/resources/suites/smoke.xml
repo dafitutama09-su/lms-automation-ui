@@ -1,0 +1,66 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="SmokeTestSuite"
+       parallel="tests"
+       thread-count="2"
+       verbose="1">
+
+    <!-- 🔥 PENTING: listener untuk screenshot -->
+    <listeners>
+        <listener class-name="core.TestListener"/>
+    </listeners>
+
+    <!-- ================= CHROME ================= -->
+    <test name="Smoke - Chrome">
+        <parameter name="browser" value="chrome"/>
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+        <classes>
+<!--            <class name="dibimbing.LoginTest"/>-->
+            <class name="Employee.EmployeeDetailTest"/>
+<!--            <class name="Employee.EmployeeAddTest"/>-->
+<!--            <class name="Employee.EmployeeUpdateTest"/>-->
+<!--            <class name="Employee.EmployeeDeleteTest"/>-->
+<!--            <class name="Division.DivisionDetailTest"/>-->
+<!--            <class name="Division.DivisionAddTest"/>-->
+<!--            <class name="Division.DivisionUpdateTest"/>-->
+<!--            <class name="Division.DivisionDeleteTest"/>-->
+<!--            <class name="Training.TrainingDetailTest"/>-->
+<!--            <class name="Training.TrainingAddTest"/>-->
+
+        </classes>
+    </test>
+
+    <!-- ================= FIREFOX ================= -->
+    <test name="Smoke - Firefox">
+        <parameter name="browser" value="firefox"/>
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+        <classes>
+<!--            <class name="dibimbing.LoginTest"/>-->
+            <class name="Employee.EmployeeDetailTest"/>
+<!--            <class name="Employee.EmployeeAddTest"/>-->
+<!--            <class name="Employee.EmployeeUpdateTest"/>-->
+<!--            <class name="Employee.EmployeeDeleteTest"/>-->
+<!--            <class name="Division.DivisionDetailTest"/>-->
+<!--            <class name="Division.DivisionAddTest"/>-->
+<!--            <class name="Division.DivisionUpdateTest"/>-->
+<!--            <class name="Division.DivisionDeleteTest"/>-->
+<!--            <class name="Training.TrainingDetailTest"/>-->
+<!--            <class name="Training.TrainingAddTest"/>-->
+        </classes>
+    </test>
+
+</suite>
+
+
