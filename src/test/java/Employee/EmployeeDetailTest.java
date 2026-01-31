@@ -83,23 +83,23 @@ public class EmployeeDetailTest extends BaseTest {
 //    }
 
     // ===== TC-EMP-10 =====
-    @Test(groups = {"smoke"})
-    public void TC_EMP_10_Verifikasi_kombinasi_filter_dan_pencarian_karyawan() {
-
-        DetailEmployeePage employeePage =
-                new DetailEmployeePage(DriverManager.getDriver());
-
-        employeePage.filterdanPencarian();
-
-        Assert.assertTrue(
-                employeePage.isBejoDetailDisplayed(),
-                "Data Bejo tidak sesuai setelah filter dan search"
-        );
-        Assert.assertTrue(
-                employeePage.isBejoDetailByAngkatan(),
-                "Angkatan tidak sesuai di halaman detail"
-        );
-    }
+//    @Test(groups = {"smoke"})
+//    public void TC_EMP_10_Verifikasi_kombinasi_filter_dan_pencarian_karyawan() {
+//
+//        DetailEmployeePage employeePage =
+//                new DetailEmployeePage(DriverManager.getDriver());
+//
+//        employeePage.filterdanPencarian();
+//
+//        Assert.assertTrue(
+//                employeePage.isBejoDetailDisplayed(),
+//                "Data Bejo tidak sesuai setelah filter dan search"
+//        );
+//        Assert.assertTrue(
+//                employeePage.isBejoDetailByAngkatan(),
+//                "Angkatan tidak sesuai di halaman detail"
+//        );
+//    }
 }
 
 

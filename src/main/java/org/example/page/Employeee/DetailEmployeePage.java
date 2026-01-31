@@ -38,7 +38,7 @@ public class DetailEmployeePage extends BasePage {
     @FindBy(xpath = "//p[normalize-space()='2024 Genap']")
     private WebElement verifybyAngkatan;
 
-    @FindBy(id = "button-detail-employee-1")
+    @FindBy(id = "button-detail-employee-0")
     private WebElement buttondetailKombinasi;
 
     @FindBy(xpath = "//p[normalize-space()='Bejo']")

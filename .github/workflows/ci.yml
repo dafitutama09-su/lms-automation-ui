@@ -4,6 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
@@ -52,5 +53,16 @@ jobs:
             reports/**
             build/reports/**
             build/test-results/**
+
+      # ================= TELEGRAM NOTIFICATION =================
+      - name: Notify Telegram
+        if: always()
+        run: |
+          STATUS="${{ job.status }}"
+          MESSAGE="✅ LMS Automation selesai untuk: ${{ matrix.browser }}%0AStatus: $STATUS%0ARepo: ${{ github.repository }}%0ABranch: ${{ github.ref_name }}"
+          
+          curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
+          -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+          -d text="$MESSAGE"
 
 
