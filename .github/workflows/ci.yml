@@ -9,26 +9,34 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, firefox]
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup JDK
+      - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
 
+      # Install browsers
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
 
       - name: Setup Firefox
         uses: browser-actions/setup-firefox@v1
 
+      # gradlew permission fix
       - name: Grant permission
         run: chmod +x gradlew
 
-      - name: Run Chrome
-        run: ./gradlew clean test -Dbrowser=chrome
-
-      - name: Run Firefox
-        run: ./gradlew clean test -Dbrowser=firefox
+      # Inject secrets (gantikan .env di CI)
+      - name: Run Test
+        run: ./gradlew clean test -Dbrowser=${{ matrix.browser }}
+        env:
+          Login_Username: ${{ secrets.LOGIN_USERNAME }}
+          Login_Password: ${{ secrets.LOGIN_PASSWORD }}

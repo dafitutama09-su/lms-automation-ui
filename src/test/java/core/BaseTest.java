@@ -14,28 +14,55 @@ public class BaseTest {
     protected static Properties config;
     protected static Dotenv dotenv;
 
+    protected static String username;
+    protected static String password;
+
     @BeforeSuite(alwaysRun = true)
     public void loadConfig() {
 
-        // ===== LOAD CONFIG PROPERTIES =====
-        String env = System.getProperty("env"); // -Penv=staging / production
+        // =========================
+        // LOAD ENV CONFIG (staging/prod)
+        // =========================
+        String env = System.getProperty("env");
         env = (env == null || env.isEmpty()) ? "staging" : env;
-        config = ConfigReader.loadProperties(env);
 
-        // ===== LOAD .env FILE =====
+        config = ConfigReader.loadProperties(env);
+        log.info("Loaded environment: {}", env);
+
+        // =========================
+        // LOAD .env (LOCAL ONLY)
+        // =========================
         dotenv = Dotenv.configure()
-                .ignoreIfMissing() // aman walau file .env belum ada
+                .ignoreIfMissing()
                 .load();
 
-        log.info("Loaded config env: {}", env);
+        // =========================
+        // PRIORITY:
+        // 1. GitHub Secrets (CI)
+        // 2. .env (local)
+        // =========================
+        username = System.getenv("LOGIN_USERNAME") != null
+                ? System.getenv("LOGIN_USERNAME")
+                : dotenv.get("Login_Username");
+
+        password = System.getenv("LOGIN_PASSWORD") != null
+                ? System.getenv("LOGIN_PASSWORD")
+                : dotenv.get("Login_Password");
+
+        log.info("Credential loaded (safe)");
     }
 
     @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
     public void setUp(@Optional("chrome") String browser) {
+
         DriverManager.initDriver(browser);
+
         DriverManager.getDriver().manage().window().maximize();
+
         DriverManager.getDriver().get(config.getProperty("baseUrl"));
+
+        log.info("Open browser: {}", browser);
     }
 
     @AfterMethod(alwaysRun = true)
