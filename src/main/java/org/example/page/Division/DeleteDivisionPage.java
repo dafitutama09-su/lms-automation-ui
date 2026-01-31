@@ -31,6 +31,9 @@ public class DeleteDivisionPage extends BasePage {
     @FindBy(id = "delete-division-confirm-button")
     private WebElement deleteButtonConfirm;
 
+    @FindBy(xpath = "//*[contains(text(),'Success')]")
+    private WebElement assertsucces;
+
 
     public void detailDevision(String name) {
         waitForVisible(searchDivisionInput);
@@ -70,6 +73,15 @@ public class DeleteDivisionPage extends BasePage {
         return driver.findElements(
                 By.xpath("//td[normalize-space()='" + divisionName + "']")
         ).isEmpty();
+    }
+
+    public boolean AssertsuccesDisplayed() {
+        try {
+            waitForVisible(assertsucces);
+            return assertsucces.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 

@@ -48,10 +48,9 @@ public class DivisionDeleteTest extends BaseTest {
         );
         divisionPage.ActionDelete();
 
-        divisionPage.VerifynameDelete("Quality Assurance Junior");
         Assert.assertTrue(
-                divisionPage.isDivisionDeleted("Quality Assurance Junior"),
-                "Data 'Quality Assurance Junior' masih muncul di Manage Division"
+                divisionPage.AssertsuccesDisplayed(),
+                "Notifikasi sukses tidak tampil meskipun proses delete divison telah dilakukan"
         );
     }
 

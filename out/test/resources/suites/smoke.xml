@@ -21,17 +21,18 @@
         </groups>
 
         <classes>
-<!--            <class name="dibimbing.LoginTest"/>-->
+            <class name="dibimbing.LoginTest"/>
             <class name="Employee.EmployeeDetailTest"/>
-<!--            <class name="Employee.EmployeeAddTest"/>-->
-<!--            <class name="Employee.EmployeeUpdateTest"/>-->
-<!--            <class name="Employee.EmployeeDeleteTest"/>-->
-<!--            <class name="Division.DivisionDetailTest"/>-->
-<!--            <class name="Division.DivisionAddTest"/>-->
-<!--            <class name="Division.DivisionUpdateTest"/>-->
-<!--            <class name="Division.DivisionDeleteTest"/>-->
-<!--            <class name="Training.TrainingDetailTest"/>-->
-<!--            <class name="Training.TrainingAddTest"/>-->
+            <class name="Employee.EmployeeAddTest"/>
+            <class name="Employee.EmployeeUpdateTest"/>
+            <class name="Employee.EmployeeDeleteTest"/>
+            <class name="Division.DivisionDetailTest"/>
+            <class name="Division.DivisionAddTest"/>
+            <class name="Division.DivisionUpdateTest"/>
+            <class name="Division.DivisionDeleteTest"/>
+            <class name="Training.TrainingDetailTest"/>
+            <class name="Training.TrainingAddTest"/>
+            <class name="Training.TrainingUpdateTest"/>
 
         </classes>
     </test>
@@ -47,17 +48,18 @@
         </groups>
 
         <classes>
-<!--            <class name="dibimbing.LoginTest"/>-->
+            <class name="dibimbing.LoginTest"/>
             <class name="Employee.EmployeeDetailTest"/>
-<!--            <class name="Employee.EmployeeAddTest"/>-->
-<!--            <class name="Employee.EmployeeUpdateTest"/>-->
-<!--            <class name="Employee.EmployeeDeleteTest"/>-->
-<!--            <class name="Division.DivisionDetailTest"/>-->
-<!--            <class name="Division.DivisionAddTest"/>-->
-<!--            <class name="Division.DivisionUpdateTest"/>-->
-<!--            <class name="Division.DivisionDeleteTest"/>-->
-<!--            <class name="Training.TrainingDetailTest"/>-->
-<!--            <class name="Training.TrainingAddTest"/>-->
+            <class name="Employee.EmployeeAddTest"/>
+            <class name="Employee.EmployeeUpdateTest"/>
+            <class name="Employee.EmployeeDeleteTest"/>
+            <class name="Division.DivisionDetailTest"/>
+            <class name="Division.DivisionAddTest"/>
+            <class name="Division.DivisionUpdateTest"/>
+            <class name="Division.DivisionDeleteTest"/>
+            <class name="Training.TrainingDetailTest"/>
+            <class name="Training.TrainingAddTest"/>
+            <class name="Training.TrainingUpdateTest"/>
         </classes>
     </test>
 

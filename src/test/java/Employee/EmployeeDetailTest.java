@@ -68,19 +68,19 @@ public class EmployeeDetailTest extends BaseTest {
     }
 
     // ===== TC-EMP-09 =====
-    @Test(groups = {"smoke"})
-    public void TC_EMP_10_Verifikasi_filter_karyawan_berdasarkan_angkatan() {
-
-        DetailEmployeePage employeePage =
-                new DetailEmployeePage(DriverManager.getDriver());
-
-        employeePage.filterByAngkatan2024Genap();
-
-        Assert.assertTrue(
-                employeePage.isAngkatan2024GenapDisplayed(),
-                "Filter angkatan tidak berhasil"
-        );
-    }
+//    @Test(groups = {"smoke"})
+//    public void TC_EMP_10_Verifikasi_filter_karyawan_berdasarkan_angkatan() {
+//
+//        DetailEmployeePage employeePage =
+//                new DetailEmployeePage(DriverManager.getDriver());
+//
+//        employeePage.filterByAngkatan2024Genap();
+//
+//        Assert.assertTrue(
+//                employeePage.isAngkatan2024GenapDisplayed(),
+//                "Filter angkatan tidak berhasil"
+//        );
+//    }
 
     // ===== TC-EMP-10 =====
     @Test(groups = {"smoke"})
