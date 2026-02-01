@@ -1,42 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Employee.EmployeeDetailTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-01-31T15:53:28" hostname="DESKTOP-TN9M3Q2" time="87.287">
+<testsuite name="Employee.EmployeeDetailTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-01-31T23:01:45" hostname="DESKTOP-TN9M3Q2" time="41.707">
   <properties/>
-  <testcase name="TC_EMP_06_Verifikasi_pencarian_karyawan_berdasarkan_nama" classname="Employee.EmployeeDetailTest" time="5.526"/>
-  <testcase name="TC_EMP_06_Verifikasi_pencarian_karyawan_berdasarkan_nama" classname="Employee.EmployeeDetailTest" time="5.968"/>
-  <testcase name="TC_EMP_08_Verifikasi_halaman_detail_karyawan_dapat_dibuka" classname="Employee.EmployeeDetailTest" time="6.037"/>
-  <testcase name="TC_EMP_10_Verifikasi_filter_karyawan_berdasarkan_angkatan" classname="Employee.EmployeeDetailTest" time="4.463"/>
-  <testcase name="TC_EMP_08_Verifikasi_halaman_detail_karyawan_dapat_dibuka" classname="Employee.EmployeeDetailTest" time="6.639"/>
-  <testcase name="TC_EMP_10_Verifikasi_kombinasi_filter_dan_pencarian_karyawan" classname="Employee.EmployeeDetailTest" time="7.121"/>
-  <testcase name="TC_EMP_10_Verifikasi_filter_karyawan_berdasarkan_angkatan" classname="Employee.EmployeeDetailTest" time="3.828"/>
-  <testcase name="TC_EMP_10_Verifikasi_kombinasi_filter_dan_pencarian_karyawan" classname="Employee.EmployeeDetailTest" time="6.024"/>
-  <system-out><![CDATA[=== Driver Initialization ===
-Running in CI: false
-Setting up ChromeDriver via WebDriverManager
-=== Driver Initialization ===
-Running in CI: false
-Setting up ChromeDriver via WebDriverManager
-=== Driver Initialization ===
-Running in CI: false
-Setting up ChromeDriver via WebDriverManager
-=== Driver Initialization ===
-Running in CI: false
-Setting up ChromeDriver via WebDriverManager
-]]></system-out>
-  <system-err><![CDATA[Jan 31, 2026 10:53:21 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="TC_EMP_06_Verifikasi_pencarian_karyawan_berdasarkan_nama" classname="Employee.EmployeeDetailTest" time="5.84"/>
+  <testcase name="TC_EMP_06_Verifikasi_pencarian_karyawan_berdasarkan_nama" classname="Employee.EmployeeDetailTest" time="5.046"/>
+  <testcase name="TC_EMP_08_Verifikasi_halaman_detail_karyawan_dapat_dibuka" classname="Employee.EmployeeDetailTest" time="7.759"/>
+  <testcase name="TC_EMP_08_Verifikasi_halaman_detail_karyawan_dapat_dibuka" classname="Employee.EmployeeDetailTest" time="5.873"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Feb 01, 2026 6:01:58 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 144
-Jan 31, 2026 10:53:21 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
-WARNING: Unable to find version of CDP to use for 144.0.7559.98. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.35.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-Jan 31, 2026 10:53:39 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 144
-Jan 31, 2026 10:53:39 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
-WARNING: Unable to find version of CDP to use for 144.0.7559.98. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.35.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-Jan 31, 2026 10:53:57 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 144
-Jan 31, 2026 10:53:57 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
-WARNING: Unable to find version of CDP to use for 144.0.7559.98. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.35.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-Jan 31, 2026 10:54:11 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 144
-Jan 31, 2026 10:54:11 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+Feb 01, 2026 6:01:58 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
 WARNING: Unable to find version of CDP to use for 144.0.7559.98. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.35.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
 </testsuite>

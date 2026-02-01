@@ -54,7 +54,7 @@ jobs:
             build/reports/**
             build/test-results/**
 
-      # ================= TELEGRAM NOTIFICATION =================
+      # ================= TELEGRAM NOTIFICATION ==========
       - name: Notify Telegram
         if: always()
         run: |

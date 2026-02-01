@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Employee.EmployeeUpdateTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-01-31T23:04:30" hostname="DESKTOP-TN9M3Q2" time="82.385">
+  <properties/>
+  <testcase name="TC_EMP_17_Verifikasi_perubahan_data_karyawan_berhasil_dengan_data_valid" classname="Employee.EmployeeUpdateTest" time="14.163"/>
+  <testcase name="TC_EMP_18_Verifikasi_validasi_muncul_saat_nomor_telepon_dikosongkan_update_data_karyawan" classname="Employee.EmployeeUpdateTest" time="12.312"/>
+  <testcase name="TC_EMP_17_Verifikasi_perubahan_data_karyawan_berhasil_dengan_data_valid" classname="Employee.EmployeeUpdateTest" time="12.89"/>
+  <testcase name="TC_EMP_18_Verifikasi_validasi_muncul_saat_nomor_telepon_dikosongkan_update_data_karyawan" classname="Employee.EmployeeUpdateTest" time="8.515"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Feb 01, 2026 6:04:23 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 144
+Feb 01, 2026 6:04:23 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 144.0.7559.98. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.35.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Feb 01, 2026 6:05:46 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 144
+Feb 01, 2026 6:05:46 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 144.0.7559.98. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.35.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+</testsuite>

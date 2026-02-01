@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Division.DivisionDeleteTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-01-31T23:08:38" hostname="DESKTOP-TN9M3Q2" time="100.18">
+  <properties/>
+  <testcase name="TC_EMP_28_Verifikasi_penghapusan_data_devision_berhasil" classname="Division.DivisionDeleteTest" time="10.95"/>
+  <testcase name="TC_EMP_28_Verifikasi_penghapusan_data_devision_berhasil" classname="Division.DivisionDeleteTest" time="3.19"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
