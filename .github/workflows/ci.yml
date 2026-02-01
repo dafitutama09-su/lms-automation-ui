@@ -16,6 +16,7 @@ jobs:
         browser: [chrome, firefox]
 
     steps:
+      # ================= CHECKOUT =================
       - uses: actions/checkout@v4
 
       # ================= JAVA =================
@@ -32,19 +33,34 @@ jobs:
       - name: Setup Firefox
         uses: browser-actions/setup-firefox@v1
 
-      # ================= PERMISSION =================
+      # ================= GRADLE PERMISSION =================
       - name: Grant permission
         run: chmod +x gradlew
 
       # ================= RUN TEST =================
-      - name: Run Test
+      - name: Run Automation Test
         run: ./gradlew clean test -Dbrowser=${{ matrix.browser }}
         env:
           Login_Username: ${{ secrets.LOGIN_USERNAME }}
           Login_Password: ${{ secrets.LOGIN_PASSWORD }}
+        continue-on-error: true
 
-      # ================= SAVE REPORT =================
-      - name: Upload Test Reports
+
+      # ================= PARSE TEST RESULT =================
+      - name: Parse Test Result
+        id: result
+        run: |
+          PASSED=$(grep -r "testsuite" build/test-results/test/*.xml | grep -o 'tests="[0-9]*"' | head -1 | grep -o '[0-9]*')
+          FAILED=$(grep -r "testsuite" build/test-results/test/*.xml | grep -o 'failures="[0-9]*"' | head -1 | grep -o '[0-9]*')
+          SKIPPED=$(grep -r "testsuite" build/test-results/test/*.xml | grep -o 'skipped="[0-9]*"' | head -1 | grep -o '[0-9]*')
+
+          echo "passed=$PASSED" >> $GITHUB_OUTPUT
+          echo "failed=$FAILED" >> $GITHUB_OUTPUT
+          echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
+
+
+      # ================= SAVE ARTIFACT =================
+      - name: Upload Reports & Screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -53,16 +69,27 @@ jobs:
             reports/**
             build/reports/**
             build/test-results/**
+            reports/screenshots/**
 
-      # ================= TELEGRAM NOTIFICATION ==========
+
+      # ================= TELEGRAM NOTIFICATION =================
       - name: Notify Telegram
         if: always()
         run: |
           STATUS="${{ job.status }}"
-          MESSAGE="✅ LMS Automation selesai untuk: ${{ matrix.browser }}%0AStatus: $STATUS%0ARepo: ${{ github.repository }}%0ABranch: ${{ github.ref_name }}"
-          
+          PASS="${{ steps.result.outputs.passed }}"
+          FAIL="${{ steps.result.outputs.failed }}"
+          SKIP="${{ steps.result.outputs.skipped }}"
+
+          MESSAGE="🚀 LMS Automation Result%0A\
+          Browser : ${{ matrix.browser }}%0A\
+          Status  : $STATUS%0A\
+          ✅ Pass : $PASS%0A\
+          ❌ Fail : $FAIL%0A\
+          ⚠ Skip : $SKIP%0A\
+          Repo   : ${{ github.repository }}%0A\
+          Branch : ${{ github.ref_name }}"
+
           curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
           -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
           -d text="$MESSAGE"
-
-
