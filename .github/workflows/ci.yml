@@ -18,25 +18,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # JAVA
       - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
 
-      # BROWSER
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
 
       - name: Setup Firefox
         uses: browser-actions/setup-firefox@v1
 
-      # PERMISSION
       - name: Grant permission
         run: chmod +x gradlew
 
-      # RUN TEST
       - name: Run Automation Test
         run: ./gradlew clean test -Dbrowser=${{ matrix.browser }}
         env:
@@ -44,20 +40,19 @@ jobs:
           Login_Password: ${{ secrets.LOGIN_PASSWORD }}
         continue-on-error: true
 
-      # PARSE RESULT
+      # ================= PARSE RESULT =================
       - name: Parse Test Result
         id: result
         run: |
-          PASSED=$(grep -r "testsuite" build/test-results/test/*.xml | grep -o 'tests="[0-9]*"' | head -1 | grep -o '[0-9]*')
-          FAILED=$(grep -r "testsuite" build/test-results/test/*.xml | grep -o 'failures="[0-9]*"' | head -1 | grep -o '[0-9]*')
-          SKIPPED=$(grep -r "testsuite" build/test-results/test/*.xml | grep -o 'skipped="[0-9]*"' | head -1 | grep -o '[0-9]*')
+          PASS=$(grep -r "testsuite" build/test-results/test/*.xml | grep -o 'tests="[0-9]*"' | grep -o '[0-9]*' | awk '{s+=$1} END {print s}')
+          FAIL=$(grep -r "testsuite" build/test-results/test/*.xml | grep -o 'failures="[0-9]*"' | grep -o '[0-9]*' | awk '{s+=$1} END {print s}')
+          SKIP=$(grep -r "testsuite" build/test-results/test/*.xml | grep -o 'skipped="[0-9]*"' | grep -o '[0-9]*' | awk '{s+=$1} END {print s}')
 
-          echo "passed=$PASSED" >> $GITHUB_OUTPUT
-          echo "failed=$FAILED" >> $GITHUB_OUTPUT
-          echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
+          echo "pass=$PASS" >> $GITHUB_OUTPUT
+          echo "fail=$FAIL" >> $GITHUB_OUTPUT
+          echo "skip=$SKIP" >> $GITHUB_OUTPUT
 
-      # SAVE ARTIFACT
-      - name: Upload Reports
+      - name: Upload Reports & Screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -68,14 +63,14 @@ jobs:
             build/test-results/**
             reports/screenshots/**
 
-      # TELEGRAM
+      # ================= TELEGRAM =================
       - name: Notify Telegram
         if: always()
         run: |
           STATUS="${{ job.status }}"
-          PASS="${{ steps.result.outputs.passed }}"
-          FAIL="${{ steps.result.outputs.failed }}"
-          SKIP="${{ steps.result.outputs.skipped }}"
+          PASS="${{ steps.result.outputs.pass }}"
+          FAIL="${{ steps.result.outputs.fail }}"
+          SKIP="${{ steps.result.outputs.skip }}"
 
           MESSAGE="🚀 LMS Automation Result
 Browser : ${{ matrix.browser }}
