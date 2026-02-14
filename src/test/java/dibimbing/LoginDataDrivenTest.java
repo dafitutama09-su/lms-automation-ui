@@ -26,7 +26,7 @@ public class LoginDataDrivenTest {
         return TestUtils.getTestDataFromCsv("data/loginData.csv");
     }
 
-    @Test(dataProvider = "loginCsvData")
+    @Test(dataProvider = "loginCsvData", groups = {"smoke"})
     public void testLoginDataDrivenCsv(
             String testCaseId,
             String username,

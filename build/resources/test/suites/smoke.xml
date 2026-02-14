@@ -5,12 +5,10 @@
        thread-count="2"
        verbose="1">
 
-    <!-- 🔥 PENTING: listener untuk screenshot -->
     <listeners>
         <listener class-name="core.TestListener"/>
     </listeners>
 
-    <!-- ================= CHROME ================= -->
     <test name="Smoke - Chrome">
         <parameter name="browser" value="chrome"/>
 
@@ -36,11 +34,8 @@
 
         </classes>
     </test>
-
-    <!-- ================= FIREFOX ================= -->
     <test name="Smoke - Firefox">
         <parameter name="browser" value="firefox"/>
-
         <groups>
             <run>
                 <include name="smoke"/>
